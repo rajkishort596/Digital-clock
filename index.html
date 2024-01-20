@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital clock</title>
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <div class="Digital-clock">
+      <div class="time"></div>
+    </div>
+    <script>
+      const digitalClock = document.querySelector(".time");
+      setInterval(() => {
+        const currentDate = new Date();
+        let hours =
+          currentDate.getHours() >= 12
+            ? currentDate.getHours() % 12
+            : currentDate.getHours();
+        if (hours < 10) {
+          hours = "0" + hours;
+        }
+        let minutes =
+          currentDate.getMinutes() < 10
+            ? "0" + currentDate.getMinutes()
+            : currentDate.getMinutes();
+        let seconds =
+          currentDate.getSeconds() < 10
+            ? "0" + currentDate.getSeconds()
+            : currentDate.getSeconds();
+        let AMPM = hours >= 12 ? " PM" : " AM";
+        let timeString = hours + " : " + minutes + " : " + seconds + AMPM;
+        digitalClock.textContent = timeString;
+      }, 1000);
+    </script>
+  </body>
+</html>
