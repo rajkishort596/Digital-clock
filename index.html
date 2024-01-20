@@ -15,9 +15,7 @@
       setInterval(() => {
         const currentDate = new Date();
         let hours =
-          currentDate.getHours() >= 12
-            ? currentDate.getHours() % 12
-            : currentDate.getHours();
+          currentDate.getHours() % 12 ||12;
         if (hours < 10) {
           hours = "0" + hours;
         }
